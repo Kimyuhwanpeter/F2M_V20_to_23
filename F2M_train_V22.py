@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from F2M_model_V19 import *
+from F2M_model_V22 import *
 
 from random import shuffle, random
 from collections import Counter
