@@ -27,7 +27,7 @@
 <br/>
 
 ## Figure 7
-![f7](https://github.com/Kimyuhwanpeter/F2M_V20_to_23/blob/main/f7.png)
+![f7](https://github.com/Kimyuhwanpeter/F2M_V20_to_23/blob/main/f7_fix.png)
 <br/>
 
 ## Figure 8
