@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from F2M_model_V22 import *
+from F2M_model_V19 import *
 
 from random import shuffle, random
 from collections import Counter
@@ -37,11 +37,11 @@ FLAGS = easydict.EasyDict({"img_size": 256,
 
                            "n_classes": 48,
 
-                           "train": True,
+                           "train": False,
                            
-                           "pre_checkpoint": False,
+                           "pre_checkpoint": True,
                            
-                           "pre_checkpoint_path": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/checkpoint_adaptive_2/70",
+                           "pre_checkpoint_path": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/checkpoint_final/75",
                            
                            "save_checkpoint": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/checkpoint_final",
                            
@@ -57,9 +57,9 @@ FLAGS = easydict.EasyDict({"img_size": 256,
                            
                            "test_dir": "A2B",
                            
-                           "fake_B_path": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/fake_B_V21",
+                           "fake_B_path": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/fake_B_V23",
                            
-                           "fake_A_path": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/fake_A_V21"})
+                           "fake_A_path": "/yuwhan/Edisk/yuwhan/Edisk/4th_paper/F2M_model_V19/fake_A_V23"})
 
 class LinearDecay(tf.keras.optimizers.schedules.LearningRateSchedule):
     # if `step` < `step_decay`: use fixed learning rate
@@ -341,6 +341,9 @@ def main():
             B_ref_img = generate_ref_img(B_images)  # decoder attention map
             B_ref = tf.reduce_mean(B_ref_img, -1, keepdims=True)
             B_ref = 1 / (1 + tf.exp(-4.6*B_ref))
+
+
+            
 
             min_ = min(len(A_images), len(B_images))
             A = list(zip(A_images, A_labels))
