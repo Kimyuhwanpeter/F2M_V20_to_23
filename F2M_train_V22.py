@@ -183,8 +183,8 @@ def cal_loss(A2B_model, B2A_model, DA_model, DB_model,
             energy_ft = (A_batch_images[i] - fake_B[i])**2
             energy_ft2 = (B_batch_images[i] - fake_A[i])**2
 
-            realB_fakeB_loss = B_class_weights * tf.reduce_mean(energy_ft)
-            realA_fakeA_loss = A_class_weights * tf.reduce_mean(energy_ft2)
+            realB_fakeB_loss = A_class_weights * tf.reduce_mean(energy_ft)
+            realA_fakeA_loss = B_class_weights * tf.reduce_mean(energy_ft2)
 
             age_loss += realB_fakeB_loss + realA_fakeA_loss
 
